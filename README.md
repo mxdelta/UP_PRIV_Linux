@@ -139,6 +139,8 @@ export TERM=xterm
 # найти файл по имени
 
         find / -name "mysql*"
+# найти файлы все и даже скрытые
+        sudo find / -type f \( -name "flag1.txt" -o -name ".flag1.txt" \) 2>/dev/null
 
 # ПОИСК ПАРОЛЕЙ
 

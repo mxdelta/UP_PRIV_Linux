@@ -55,6 +55,10 @@
 
         getcap -r / 2>/dev/null
 
+# Sudo misconfig
+
+        all versions below 1.8.28
+
 # SUID SGID
 
         find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null

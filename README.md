@@ -193,4 +193,10 @@ poc - https://github.com/arthepsy/CVE-2021-4034
 # C
         gcc src.c -fPIC -shared -o /development/libshared.so компиляция бибилиотек
         gcc -o output input.c
-        
+
+
+
+
+
+
+https://github.com/marcus-sec/htb-writeups/blob/main/htb-academy-linux-local-privilege-escalation-skills-assessment.pdf

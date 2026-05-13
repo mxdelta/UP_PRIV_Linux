@@ -224,9 +224,9 @@ g.system("su")
         4. Уязвимость CVE-2026-31431 (кодовое название — Copy Fail) — это логическая ошибка в криптографическом компоненте ядра Linux, которая позволяет локальному пользователю получить права суперпользователя (root). Проблема связана с модулем algif_aead и шаблоном authencesn.  Скачиваем с https://github.com/theori-io/copy-fail-CVE-2026-31431/tree/main файл copy_fail_exp.py и запускаем Python3 copy_fail_exp.py --> и мы root
         5. Способы исправления
         5.1 Обновление ядра до версии с патчем. Уязвимость устранена в следующих релизах ядра Linux: 6.18.22, 6.19.12 и 7.0. Патч откатывает оптимизацию, внесённую в 2017 году, которая позволяла размещать страницы страничного кэша непосредственно в целевом scatterlist, доступном для записи
-        5.2 Временные меры до установки обновления: можно отключить модуль algif_aead. Для этого выполните команды:
-        echo "install algif_aead /bin/false" > /etc/modprobe.d/disable-algif.conf
-        rmmod algif_aead 2>/dev/null
+        5.2 Временные меры до установки обновления: можно отключить модуль algif_aead. Для этого выполните команды from root:
+        # echo "install algif_aead /bin/false" > /etc/modprobe.d/disable-algif.conf
+        # rmmod algif_aead 2>/dev/null || true
 
         Dirty Frag        (LPE)
 

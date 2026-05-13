@@ -201,6 +201,7 @@ poc - https://github.com/arthepsy/CVE-2021-4034
 
 https://github.com/marcus-sec/htb-writeups/blob/main/htb-academy-linux-local-privilege-escalation-skills-assessment.pdf
 
+# Copy Fail - CVE-2026-31431
 
 https://github.com/theori-io/copy-fail-CVE-2026-31431/tree/main
 #!/usr/bin/env python3

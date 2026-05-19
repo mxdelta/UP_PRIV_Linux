@@ -240,6 +240,6 @@ g.system("su")
         Используйте следующую команду, чтобы удалить модули, в которых обнаружены уязвимости, и очистить кэш страниц.
         sh -c "printf 'install esp4 /bin/false\ninstall esp6 /bin/false\ninstall rxrpc /bin/false\n' > /etc/modprobe.d/dirtyfrag.conf; rmmod esp4 esp6 rxrpc 2>/dev/null; echo 3 > /proc/sys/vm/drop_caches; true"
 
-# вытягивание /etc/shadows и ключа Private (почему то не работает)
+# MiniPlasma - вытягивание /etc/shadows и ключа Private (почему то не работает)
 
-        https://github.com/0xdeadbeefnetwork/ssh-keysign-pwn/blob/main/demo.gif
+        https://github.com/Nightmare-Eclipse/MiniPlasma.git
